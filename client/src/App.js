@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { handleFetchUsers } from "./redux/actions/usersActions";
+import React from "react";
 import Header from "./components/presentationals/Header";
+import Users from "./components/containers/Users";
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(handleFetchUsers());
-  }, []);
   return (
-    <div>
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center"
+      }}
+    >
       <Header />
+      <Users />
     </div>
   );
 }
