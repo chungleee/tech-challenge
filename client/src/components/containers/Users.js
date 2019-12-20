@@ -34,11 +34,12 @@ const Users = () => {
         return (
           <Link
             to={{
-              pathname: `/${user.id}`,
+              pathname: `/user/${user.id}`,
               state: {
                 user
               }
             }}
+            className="grow"
             style={{ flexShrink: "1", flexBasis: "30%", margin: "5px" }}
             key={user.id}
           >
