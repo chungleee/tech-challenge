@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import Loader from "../presentationals/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { handleGetAlbumById } from "../../redux/actions/albumsActions";
 
 const Album = ({ location }) => {
   const { album } = location.state;
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const { photos } = useSelector(state => {
@@ -20,6 +22,12 @@ const Album = ({ location }) => {
   }
   return (
     <div>
+      <button
+        className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4"
+        onClick={history.goBack}
+      >
+        Go Back
+      </button>
       <h1>{album.title}</h1>
       {photos.map(photo => {
         return (
