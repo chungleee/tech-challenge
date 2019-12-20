@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Loader from "../presentationals/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { handleFetchUsers } from "../../redux/actions/usersActions";
@@ -31,12 +32,18 @@ const Users = () => {
     >
       {users.map(user => {
         return (
-          <li
-            style={{ flexShrink: "1", flexBasis: "33%", margin: "5px" }}
+          <Link
+            to={{
+              pathname: `/${user.id}`,
+              state: {
+                user
+              }
+            }}
+            style={{ flexShrink: "1", flexBasis: "30%", margin: "5px" }}
             key={user.id}
           >
             <Card id={user.id} name={user.name} />
-          </li>
+          </Link>
         );
       })}
     </ul>
