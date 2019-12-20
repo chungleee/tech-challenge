@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/presentationals/Header";
 import Users from "./components/containers/Users";
 import UserAlbums from "./components/containers/UserAlbums";
+import Album from "./components/containers/Album";
 
 function App() {
   return (
@@ -25,9 +26,17 @@ function App() {
         />
 
         <Route
-          path="/:userId"
+          exact
+          path="/user/:userId"
           render={props => {
             return <UserAlbums {...props} />;
+          }}
+        />
+
+        <Route
+          path="/user/:userId/album/:albumId"
+          render={props => {
+            return <Album {...props} />;
           }}
         />
       </div>
